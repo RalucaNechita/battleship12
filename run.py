@@ -11,3 +11,12 @@ board = [['O'] * board_size for _ in range(board_size)]
 def print_board(board):
     for row in board:
         print(' '.join(row))
+
+# Section 2: Place the battleship
+# -------------------------------
+# Function to randomly place the battleship on the board
+
+def place_battleship():
+    ship_row = random.randint(0, board_size - 1)
+    ship_col = random.randint(0, board_size - 1)
+    return ship_row, ship_col
