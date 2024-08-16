@@ -72,3 +72,16 @@ def play_game():
                 # Mark the missed guess on the board
                 print("You missed my battleship!")
                 board[guess_row][guess_col] = "X"
+            # If it's the last turn, reveal the location of the battleship
+        if turn == 4:
+            print("\nGame Over")
+            print(f"The battleship was at ({ship_row}, {ship_col})")
+            print_board(board)
+
+# Section 5: Start the game
+# -------------------------
+# Call the function to start the game
+
+
+if __name__ == "__main__":
+    play_game()
