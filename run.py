@@ -56,3 +56,6 @@ def play_game():
         print(f"\nTurn {turn + 1}")
         # Print the current state of the board
         print_board(board)
+
+        # Get the player's guess
+        guess_row, guess_col = get_player_guess()
