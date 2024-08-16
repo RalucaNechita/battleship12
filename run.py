@@ -1,3 +1,7 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import random
+
+# Section 1: Set up the game board
+# -------------------------------
+# Define the size of the board and create a 5x5 grid filled with 'O'
+board_size = 5
+board = [['O'] * board_size for _ in range(board_size)]
