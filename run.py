@@ -59,3 +59,16 @@ def play_game():
 
         # Get the player's guess
         guess_row, guess_col = get_player_guess()
+
+        # Check if the guess is correct
+        if guess_row == ship_row and guess_col == ship_col:
+            print("Congratulations! You sunk my battleship!")
+            break
+        else:
+            # If the player has already guessed this spot, let them know
+            if board[guess_row][guess_col] == "X":
+                print("You already guessed that. Try again.")
+            else:
+                # Mark the missed guess on the board
+                print("You missed my battleship!")
+                board[guess_row][guess_col] = "X"
