@@ -39,7 +39,7 @@ def get_player_guess(size):
         try:
             # Ask the player to enter the row and column numbers
             guess_row = int(input(Fore.YELLOW + f"Guess Row (0-{size-1}): "))
-            guess_col = int(input(Fore.Yellow + f"Guess Column(0-{size-1}): "))
+            guess_col = int(input(Fore.YELLOW + f"Guess Column(0-{size-1}): "))
             # Ensure the guess is within the valid range
             if 0 <= guess_row < size and 0 <= guess_col < size:
                 return guess_row, guess_col
