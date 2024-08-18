@@ -3,8 +3,10 @@ import random
 # Section 1: Set up the game board
 # -------------------------------
 # Define the size of the board and create a 5x5 grid filled with 'O'
-board_size = 5
-board = [['O'] * board_size for _ in range(board_size)]
+
+
+def create_board(size):
+    return [['O'] * size for _ in range(size)]
 
 # Function to print game board
 
@@ -49,6 +51,7 @@ def get_player_guess():
 
 def play_game():
     print("Welcome to Battleship!")
+    board = generate_board_size(6)
     # Place the battleship on the board
     ship_row, ship_col = place_battleship()
     # The player has 5 turns to guess the location of the battleship
