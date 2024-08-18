@@ -1,6 +1,9 @@
 import random
 from colorama import init, Fore, Style
 
+# Initialize colorama
+init(autoreset=True)
+
 # Section 1: Set up the game board
 # -------------------------------
 # Function to create the game board
