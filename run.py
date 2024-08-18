@@ -45,9 +45,30 @@ def get_player_guess():
             print("Please enter a valid number.")
 
 
-# Section 4: Main game loop
+# Section 4: Choose Difficulty Level
+# ----------------------------------
+# Function to choose the game difficulty
+def choose_difficulty():
+    while True:
+        print("Choose a difficulty level:")
+        print("1. Easy (5x5 grid, 10 turns)")
+        print("2. Medium (7x7 grid, 7 turns)")
+        print("3. Hard (10x10 grid, 5 turns)")
+        choice = input("Enter 1, 2, or 3: ")
+
+        if choice == '1':
+            return 5, 10
+        elif choice == '2':
+            return 7, 7
+        elif choice == '3':
+            return 10, 5
+        else:
+            print("Invalid choice. Please select 1, 2, or 3.")
+
+# Section 5: Main game loop
 # -------------------------
 # Function to play the game
+
 
 def play_game():
     print("Welcome to Battleship!")
@@ -81,7 +102,7 @@ def play_game():
             print(f"The battleship was at ({ship_row}, {ship_col})")
             print_board(board)
 
-# Section 5: Start the game
+# Section 6: Start the game
 # -------------------------
 # Call the function to start the game
 
