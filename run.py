@@ -1,4 +1,5 @@
 import random
+from colorama import init, Fore, Style
 
 # Section 1: Set up the game board
 # -------------------------------
