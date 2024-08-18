@@ -1,8 +1,5 @@
 import random
-from colorama import init, Fore, Style
 
-# Initialize colorama
-init(autoreset=True)
 
 # Section 1: Set up the game board
 # -------------------------------
@@ -38,15 +35,15 @@ def get_player_guess(size):
     while True:
         try:
             # Ask the player to enter the row and column numbers
-            guess_row = int(input(Fore.YELLOW + f"Guess Row (0-{size-1}): "))
-            guess_col = int(input(Fore.YELLOW + f"Guess Column(0-{size-1}): "))
+            guess_row = int(input(f"Guess Row (0-{size-1}): "))
+            guess_col = int(input(f"Guess Column(0-{size-1}): "))
             # Ensure the guess is within the valid range
             if 0 <= guess_row < size and 0 <= guess_col < size:
                 return guess_row, guess_col
             else:
-                print(Fore.RED + "Oops, that's not even close. Try again.")
+                print("Oops, that's not even close. Try again.")
         except ValueError:
-            print(Fore.RED + "Please enter a valid number.")
+            print("Please enter a valid number.")
 
 # Section 4: Game Rules and Difficulty Selection
 # ----------------------------------------------
@@ -54,28 +51,28 @@ def get_player_guess(size):
 
 # Function to display the game rules
 def display_rules():
-    print(Fore.CYAN + Style.BRIGHT + "Welcome to Battleship!")
-    print(Fore.CYAN + "\nGame Rules:")
-    print(Fore.CYAN + "1. A battleship is hidden somewhere on the board.")
-    print(Fore.CYAN + "2. The board size and number of turns"
+    print("Welcome to Battleship!")
+    print("\nGame Rules:")
+    print("1. A battleship is hidden somewhere on the board.")
+    print("2. The board size and number of turns"
           "depend on the difficulty level you choose.")
-    print(Fore.CYAN + "3. Your goal is to guess the location of the"
+    print("3. Your goal is to guess the location of the"
           "battleship within the allowed number of turns.")
-    print(Fore.CYAN + "4. Enter the row and column numbers to make a guess.")
-    print(Fore.CYAN + "5. If you guess correctly, you win!"
+    print("4. Enter the row and column numbers to make a guess.")
+    print("5. If you guess correctly, you win!"
           "If you run out of turns, the game is over.")
-    print(Fore.CYAN + "\nGood luck!\n")
+    print("\nGood luck!\n")
 
 # Function to choose the game difficulty
 
 
 def choose_difficulty():
     while True:
-        print(Fore.GREEN + "Choose a difficulty level:")
-        print(Fore.GREEN + "1. Easy (5x5 grid, 10 turns)")
-        print(Fore.GREEN + "2. Medium (7x7 grid, 7 turns)")
-        print(Fore.GREEN + "3. Hard (10x10 grid, 5 turns)")
-        choice = input(Fore.YELLOW + "Enter 1, 2, or 3: ")
+        print("Choose a difficulty level:")
+        print("1. Easy (5x5 grid, 10 turns)")
+        print("2. Medium (7x7 grid, 7 turns)")
+        print("3. Hard (10x10 grid, 5 turns)")
+        choice = input("Enter 1, 2, or 3: ")
 
         if choice == '1':
             return 5, 10
@@ -84,7 +81,7 @@ def choose_difficulty():
         elif choice == '3':
             return 10, 5
         else:
-            print(Fore.RED + "Invalid choice. Please select 1, 2, or 3.")
+            print("Invalid choice. Please select 1, 2, or 3.")
 
 # Section 5: Main game loop
 # -------------------------
@@ -102,27 +99,27 @@ def play_game():
     ship_row, ship_col = place_battleship(board_size)
     # The player has a certain number of turns based on difficulty
     for turn in range(max_turns):
-        print(Fore.MAGENTA + f"\nTurn {turn + 1} of {max_turns}")
+        print(f"\nTurn {turn + 1} of {max_turns}")
         # Print the current state of the board
         print_board(board)
         # Get the player's guess
         guess_row, guess_col = get_player_guess(board_size)
         # Check if the guess is correct
         if guess_row == ship_row and guess_col == ship_col:
-            print(Fore.GREEN + Style.BRIGHT + "You sunk my battleship!")
+            print("You sunk my battleship!")
             break
         else:
             # If the player has already guessed this spot, let them know
             if board[guess_row][guess_col] == "X":
-                print(Fore.RED + "You already guessed that. Try again.")
+                print("You already guessed that. Try again.")
             else:
                 # Mark the missed guess on the board
-                print(Fore.BLUE + "You missed my battleship!")
+                print("You missed my battleship!")
                 board[guess_row][guess_col] = "X"
         # If it's the last turn, reveal the location of the battleship
         if turn == max_turns - 1:
-            print(Fore.RED + "\nGame Over")
-            print(Fore.RED + f"The battleship was at ({ship_row}, {ship_col})")
+            print("\nGame Over")
+            print(f"The battleship was at ({ship_row}, {ship_col})")
             print_board(board)
 
 # Section 6: Start the game
